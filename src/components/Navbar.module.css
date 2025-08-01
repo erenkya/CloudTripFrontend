@@ -1,0 +1,29 @@
+.navbarContainer {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 3fr 1fr;
+    background-color: #0f0f0f;
+    color: #f0f0f0;
+    padding: 1rem 2rem;
+}
+.logoContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.LoginContainer {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 0.5rem;
+}
+
+.buttonSingup {
+    background-color: #0f0f0f;
+    cursor: pointer;
+}
+.buttonSingup:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
