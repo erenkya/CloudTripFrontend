@@ -5,3 +5,13 @@
     gap: 1rem;
     row-gap: 2rem;
 }
+
+.heroTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heroTitle > span {
+    color: #f0f0f0;
+    font-size: 3rem;
+}

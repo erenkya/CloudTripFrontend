@@ -42,6 +42,16 @@
     row-gap: 2rem;
 }
 
+.home_heroTitle__31oGI {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home_heroTitle__31oGI > span {
+    color: #f0f0f0;
+    font-size: 3rem;
+}
+
 /*!************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/HomeFlightCart.module.css ***!
   \************************************************************************************************************************************************************************************************************************************************************************************/
@@ -57,6 +67,9 @@
 .HomeFlightCart_remainingSeatAlert__2u3Tm {
     font-size: 0.75rem;
     color: #9d2424;
+}
+.HomeFlightCart_airline__lnPnu {
+    font-size: 0.75rem;
 }
 .HomeFlightCart_flightTimesContainer__esDdf {
     margin-top: 1rem;

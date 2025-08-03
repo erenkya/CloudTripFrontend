@@ -10,6 +10,7 @@ import { getAllFlights } from "../../api/flight";
 import Navbar from "@/components/Navbar";
 import styles from "./home.module.css";
 import HomeFlightCart from "@/components/HomeFlightCart";
+import findAirports from "@/logic/airportCityLogic";
 
 export default function Home() {
     // API Login Status check & JWT auto validation
@@ -46,7 +47,6 @@ export default function Home() {
             doLogin();
         });
     }, []);
-
     //Get all flights
     const [flights, setAllFlights] = useState([]);
     useEffect(() => {
@@ -54,7 +54,6 @@ export default function Home() {
             try {
                 const flightsData = await getAllFlights();
                 setAllFlights(flightsData);
-                console.log(flightsData);
             } catch (error) {
                 console.error("Error fetching flights:", error.message);
             }
@@ -62,11 +61,28 @@ export default function Home() {
 
         fetchFlights();
     }, []);
-    console.log(flights.map((f) => f.id));
+
     return (
         <>
             <Navbar />
-            <div className={styles.heroSection}></div>
+
+            <div style={{ position: "relative", width: "100%", height: "550px" }}>
+                <Image src="/assets/hero-photo.jpg" alt="Hero" fill style={{ objectFit: "cover" }} priority />
+                <div
+                    className={styles.heroTitle}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backdropFilter: "blur(8px) brightness(0.8)",
+                        WebkitBackdropFilter: "blur(8px) brightness(0.8)", // for Safari
+                    }}
+                >
+                    <span>Bring Your Dreams Above The Clouds</span>
+                </div>
+            </div>
 
             <div className={styles.homeContainer}>
                 {[...flights.sort((a, b) => Number(a.id) - Number(b.id))].map((flight) => (

@@ -1,13 +1,29 @@
 import React from "react";
 import styles from "./HomeFlightCart.module.css";
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 function HomeFlightCart(props) {
     return (
-        <Card className="w-full max-w-sm">
+        <Card className="w-full max-w-sm overflow-hidden rounded-2xl pt-0">
+            <div className="relative w-full h-[200px]">
+                <Image src={`/assets/airlines/${props.airline}.jpg`} alt={props.airline} fill className="object-cover" priority />
+                <div
+                    className={styles.heroTitle}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backdropFilter: "brightness(0.85)",
+                        WebkitBackdropFilter: "brightness(0.85)", // for Safari
+                    }}
+                />
+            </div>
             <CardHeader>
                 <div className={styles.cardHeader}>
                     <CardTitle>
@@ -17,6 +33,7 @@ function HomeFlightCart(props) {
                         Last {props.seatCapacity} seat available
                     </div>
                 </div>
+                <div className={styles.airline}>{props.airline}</div>
                 <CardDescription>
                     <div className={styles.flightTimesContainer}>
                         <div className={styles.flightTimes}>
