@@ -10,7 +10,6 @@ import { getAllFlights } from "../../api/flight";
 import Navbar from "@/components/Navbar";
 import styles from "./home.module.css";
 import HomeFlightCart from "@/components/HomeFlightCart";
-import findAirports from "@/logic/airportCityLogic";
 
 export default function Home() {
     // API Login Status check & JWT auto validation

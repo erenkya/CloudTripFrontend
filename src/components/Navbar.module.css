@@ -35,7 +35,14 @@
 }
 .popoverInput {
 }
-
+.searchButton {
+    background-color: #0f0f0f;
+    color: #f0f0f0;
+    cursor: pointer;
+}
+.searchButton:hover {
+    background-color: #202020;
+}
 .LoginContainer {
     display: flex;
     align-items: center;

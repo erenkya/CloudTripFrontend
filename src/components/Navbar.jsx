@@ -1,18 +1,40 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { use } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "./ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
+import { useRouter } from "next/navigation";
+import { format } from "date-fns";
+import findAirports from "@/logic/airportCityLogic";
+import { AlertCircleIcon, CheckCircle2Icon, PopcornIcon } from "lucide-react";
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert";
 
 function Navbar() {
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    useEffect(() => {
+        setIsLoggedIn(localStorage.getItem("isLoggedIn") === "true");
+    });
 
-    const [open, setOpen] = useState(false);
+    const [from, setFrom] = useState("");
+    const [to, setTo] = useState("");
     const [date, setDate] = useState(null);
+    const [showAlert, setShowAlert] = useState(false);
+
+    const router = useRouter();
+
+    const handleSearch = () => {
+        if (!from || !to || !date) {
+            setShowAlert(true);
+        } else {
+            const formattedDate = format(date, "yyyy-MM-dd");
+
+            router.push(`/search?from=${findAirports(from)[0].code}&to=${findAirports(to)[0].code}&date=${formattedDate}`);
+        }
+    };
 
     return (
         <div className={styles.navbarContainer}>
@@ -29,19 +51,38 @@ function Navbar() {
                     <PopoverTrigger className={styles.popoverTrigger}>Search Flights</PopoverTrigger>
                     <PopoverContent className={styles.popoverContent}>
                         <div className={styles.popoverContainer}>
-                            <Input className={styles.popoverInput} placeholder="From" />
-                            <Input className={styles.popoverInput} placeholder="To" />
+                            <Input
+                                className={styles.popoverInput}
+                                placeholder="From"
+                                value={from}
+                                onChange={(e) => setFrom(e.target.value.toUpperCase())}
+                            />
+                            <Input
+                                className={styles.popoverInput}
+                                placeholder="To"
+                                value={to}
+                                onChange={(e) => setTo(e.target.value.toUpperCase())}
+                            />
 
                             {/* Date picker */}
 
                             <Popover>
                                 <PopoverTrigger>
-                                    <Button variant="link">{date ? date.toLocaleDateString() : "Select Date"}</Button>
+                                    <Button variant="outline">{date ? date.toLocaleDateString() : "Select Date"}</Button>
                                 </PopoverTrigger>
                                 <PopoverContent>
                                     <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
                                 </PopoverContent>
                             </Popover>
+                            <Button className={styles.searchButton} variant="outline" onClick={handleSearch}>
+                                Search
+                            </Button>
+
+                            {showAlert && (
+                                <Alert variant="destructive">
+                                    <AlertTitle>Fill all the spaces.</AlertTitle>
+                                </Alert>
+                            )}
                         </div>
                     </PopoverContent>
                 </Popover>

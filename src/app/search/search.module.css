@@ -1,0 +1,29 @@
+.homeContainer {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    row-gap: 2rem;
+}
+
+.heroTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.heroTitle > span {
+    color: #f0f0f0;
+    font-size: 3rem;
+}
+.destinationString {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.destinationString > span {
+    font-size: 1rem;
+    color: #0f0f0f;
+    font-weight: 600;
+}
