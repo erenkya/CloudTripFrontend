@@ -31,3 +31,51 @@
     cursor: pointer;
 }
 
+/*!*******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/app/home.module.css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************/
+.home_homeContainer__R21we {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    row-gap: 2rem;
+}
+
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[5].use[3]!./src/components/HomeFlightCart.module.css ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.HomeFlightCart_cardHeader__MhNOr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.HomeFlightCart_remainingSeatNormal__KnKXB {
+    font-size: 0.75rem;
+    color: #777;
+}
+.HomeFlightCart_remainingSeatAlert__2u3Tm {
+    font-size: 0.75rem;
+    color: #9d2424;
+}
+.HomeFlightCart_flightTimesContainer__esDdf {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.HomeFlightCart_flightTimes__OWnKu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.HomeFlightCart_priceContainer__MO9MU {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.HomeFlightCart_priceContainer__MO9MU > span {
+    color: #0f0f0f;
+    font-weight: 600;
+}
+

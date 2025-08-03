@@ -3,9 +3,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
+
+import Image from "next/image";
 import { login, checkJwtValidation } from "../../api/auth";
 import { getAllFlights } from "../../api/flight";
 import Navbar from "@/components/Navbar";
+import styles from "./home.module.css";
+import HomeFlightCart from "@/components/HomeFlightCart";
 
 export default function Home() {
     // API Login Status check & JWT auto validation
@@ -58,10 +62,27 @@ export default function Home() {
 
         fetchFlights();
     }, []);
-
+    console.log(flights.map((f) => f.id));
     return (
         <>
             <Navbar />
+            <div className={styles.heroSection}></div>
+
+            <div className={styles.homeContainer}>
+                {[...flights.sort((a, b) => Number(a.id) - Number(b.id))].map((flight) => (
+                    <HomeFlightCart
+                        key={flight.id}
+                        id={flight.id}
+                        airline={flight.airline}
+                        arrival={flight.arrival}
+                        departure={flight.departure}
+                        arrivalTime={flight.arrivalTime}
+                        departureTime={flight.departureTime}
+                        price={flight.price}
+                        seatCapacity={flight.seatCapacity}
+                    />
+                ))}
+            </div>
         </>
     );
 }

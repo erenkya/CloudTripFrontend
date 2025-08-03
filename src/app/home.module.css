@@ -1,0 +1,7 @@
+.homeContainer {
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    row-gap: 2rem;
+}

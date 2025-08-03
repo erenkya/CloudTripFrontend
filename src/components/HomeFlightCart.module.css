@@ -1,0 +1,33 @@
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.remainingSeatNormal {
+    font-size: 0.75rem;
+    color: #777;
+}
+.remainingSeatAlert {
+    font-size: 0.75rem;
+    color: #9d2424;
+}
+.flightTimesContainer {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.flightTimes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.priceContainer > span {
+    color: #0f0f0f;
+    font-weight: 600;
+}
