@@ -4,9 +4,15 @@ import { useState } from "react";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Input } from "./ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Calendar } from "@/components/ui/calendar";
 
 function Navbar() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("isLoggedIn") === "true");
+
+    const [open, setOpen] = useState(false);
+    const [date, setDate] = useState(null);
 
     return (
         <div className={styles.navbarContainer}>
@@ -17,9 +23,28 @@ function Navbar() {
 
                 <span>CloudTrip</span>
             </Link>
-            <div className={styles.ButtonContainer}>Buttons</div>
 
             <div className={styles.LoginLogoutContainer}>
+                <Popover>
+                    <PopoverTrigger className={styles.popoverTrigger}>Search Flights</PopoverTrigger>
+                    <PopoverContent className={styles.popoverContent}>
+                        <div className={styles.popoverContainer}>
+                            <Input className={styles.popoverInput} placeholder="From" />
+                            <Input className={styles.popoverInput} placeholder="To" />
+
+                            {/* Date picker */}
+
+                            <Popover>
+                                <PopoverTrigger>
+                                    <Button variant="link">{date ? date.toLocaleDateString() : "Select Date"}</Button>
+                                </PopoverTrigger>
+                                <PopoverContent>
+                                    <Calendar mode="single" selected={date} onSelect={setDate} initialFocus />
+                                </PopoverContent>
+                            </Popover>
+                        </div>
+                    </PopoverContent>
+                </Popover>
                 {isLoggedIn ? (
                     //Düzenlenecek
                     <button onClick={() => setIsLoggedIn(false)}>Logout</button>
