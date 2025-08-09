@@ -58,3 +58,27 @@
     background-color: #f0f0f0;
     cursor: pointer;
 }
+.profileContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+}
+.profileContainer:hover {
+    border-bottom: 1px solid #f0f0f0;
+}
+.profilePopover {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.profilePopoverLink {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profilePopoverLinkButton {
+    width: 100%;
+}
