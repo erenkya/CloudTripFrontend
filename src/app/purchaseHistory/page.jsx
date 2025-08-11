@@ -20,9 +20,9 @@ const page = () => {
         }
         fetchPurchaseHistory();
     }, []);
-    // useEffect(() => {
-    //     console.log(purchaseHistory);
-    // }, [purchaseHistory]);
+    useEffect(() => {
+        console.log(purchaseHistory);
+    }, [purchaseHistory]);
     return (
         <>
             <Navbar />

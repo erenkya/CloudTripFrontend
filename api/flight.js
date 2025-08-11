@@ -17,3 +17,21 @@ export async function getAllFlights() {
 
     return await res.json();
 }
+
+export async function cancelFlight(userId, flightId) {
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL;
+    const token = localStorage.getItem("jwt");
+    const res = await fetch(apiBaseUrl + "/cancelFlight/" + userId + "/" + flightId, {
+        method: "PUT",
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+        },
+    });
+
+    if (!res.ok) {
+        throw new Error("Flights could not be fetched");
+    }
+
+    return await res.json();
+}
